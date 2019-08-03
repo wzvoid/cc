@@ -32,14 +32,14 @@ char *wz_strcat(char *dest, const char *src) {
 
 int wz_strcmp(const char *str1, const char *str2) {
     assert(str1 != NULL && str2 != NULL);
-    int compare = 0;
-    while (!(compare = *str1 - *str2) && *str1) { //compare必须在前面！！如："ab","abc"，先判断前面的只有当前面为真时才有必要判断后面的。
+    int flag = 0;
+    while (!(flag = *str1 - *str2) && *str1) { //compare必须在前面！！如："ab","abc"，先判断前面的只有当前面为真时才有必要判断后面的。
         ++str1;
         ++str2;
     }
-    if (compare > 0)
+    if (flag > 0)
         return 1;
-    else if (compare < 0)
+    else if (flag < 0)
         return -1;
     else
         return 0;
@@ -48,7 +48,7 @@ int wz_strcmp(const char *str1, const char *str2) {
 int main() {
     char p[100] = {'h', 'e', 'l', 'l', 'o'};
     char *p2 = "wzvoid";
-    printf("%s", wz_strcat(p, p2));
-    printf("%ld", strlen(p2));
+//    printf("%s", wz_strcat(p, p2));
+    printf("%d", wz_strcmp(p, p2));
     return 0;
 }
