@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 
+#pragma pack(4)
 struct A {
     int a;
     short b;
@@ -18,10 +19,17 @@ struct B {
     char d;
 };
 
+struct C {
+    int a;
+    short b[5];
+};
+
 int main() {
     struct A a;
     struct B b;
+    struct C c;
     printf("%d\n", sizeof(a));
-    printf("%d", sizeof(b));
+    printf("%d\n", sizeof(b));
+    printf("%d", sizeof(c));
     return 0;
 }
